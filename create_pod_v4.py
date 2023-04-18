@@ -26,7 +26,7 @@ for i in range(0, 10):
     image = 'gcr.io/level-approach-382012/ns_monolith_parallel_reader_v2:latest'
     env1 = V1EnvVar(name='ITER', value=str(i))
     env2 = V1EnvVar(name='POD_TYPE', value='1st')
-    env3 = V1EnvVar(name='PCT', value='0')
+    env3 = V1EnvVar(name='PCT', value='1')
     container = V1Container(name=container_name, image=image, env=[env1, env2, env3])
 
     node_name = ''
