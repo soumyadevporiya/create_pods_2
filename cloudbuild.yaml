@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/level-approach-382012/create-pod-v4:latest','.']
+    id: 'build-image-myapp'
+    waitFor: ['-']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push','gcr.io/level-approach-382012/create-pod-v4:latest']
+    id: 'push-image-to-container-registry'
+    waitFor: ['build-image-myapp']
+options:
+  logging: CLOUD_LOGGING_ONLY
+images:
+- 'gcr.io/level-approach-382012/create-pod-v4:latest'
