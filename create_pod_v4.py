@@ -26,16 +26,14 @@ for i in range(5, 10):
     image = 'gcr.io/level-approach-382012/ns_monolith_parallel_reader_v2:latest'
     env1 = V1EnvVar(name='ITER', value=str(i))
     env2 = V1EnvVar(name='POD_TYPE', value='1st')
-    env3 = V1EnvVar(name='PCT', value='1')
+    env3 = V1EnvVar(name='PCT', value='0')
     container = V1Container(name=container_name, image=image, env=[env1, env2, env3])
 
     node_name = ''
-    if i <= 6:
-        node_name = 'gke-cluster-1-default-pool-308539de-30c4'
-    elif i <= 8:
-        node_name = 'gke-cluster-1-default-pool-308539de-4b5z'
+    if i <= 10:
+        node_name = 'gke-cluster-1-default-pool-9962d16b-plm6'
     else:
-        node_name = 'gke-cluster-1-default-pool-308539de-f1dc'
+        node_name = 'gke-cluster-1-pool-1-5117341c-zkx8'
 
     podspec = V1PodSpec(containers=[container], restart_policy="Always", node_name=node_name)
     metadata = V1ObjectMeta(name=pod_name, namespace=namespace)
