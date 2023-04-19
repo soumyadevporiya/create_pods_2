@@ -31,15 +31,11 @@ for i in range(5, 10):
 
     node_name = ''
     if i <= 1:
-        node_name = 'gke-cluster-1-default-pool-f8bf9692-7gsk'
+        node_name = 'gke-cluster-1-default-pool-308539de-30c4'
     elif i <= 3:
-        node_name = 'gke-cluster-1-default-pool-f8bf9692-c4gp'
-    elif i <= 5:
-        node_name = 'gke-cluster-1-default-pool-f8bf9692-jqzq'
-    elif i <= 7:
-        node_name = 'gke-cluster-1-default-pool-f8bf9692-pq0p'
-    elif i <= 9:
-        node_name = 'gke-cluster-1-default-pool-f8bf9692-psvd'
+        node_name = 'gke-cluster-1-default-pool-308539de-4b5z'
+    else:
+        node_name = 'gke-cluster-1-default-pool-308539de-f1dc'
 
     podspec = V1PodSpec(containers=[container], restart_policy="Always", node_name=node_name)
     metadata = V1ObjectMeta(name=pod_name, namespace=namespace)
