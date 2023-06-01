@@ -18,7 +18,7 @@ from kubernetes.client import V1EnvVar
 config.load_incluster_config()
 v1 = kubernetes.client.CoreV1Api()
 
-for i in range(0, 4):
+for i in range(0, 2):
     container_name = 'container-with-envs-{}'.format(i)
     namespace = 'default'
     pod_name = 'my-bq-read-pod-{}'.format(i)
