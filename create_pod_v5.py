@@ -30,9 +30,9 @@ for i in range(0, 4):
     container = V1Container(name=container_name, image=image, env=[env1, env2, env3])
 
     node_name = ''
-    if i <= 1:
+    if i <= 0:
         node_name = 'gke-cluster-1-default-pool-286b6d2a-m227'
-    elif i <= 3:
+    elif i <= 1:
         node_name = 'gke-cluster-1-default-pool-286b6d2a-mvlv'
 
     podspec = V1PodSpec(containers=[container], restart_policy="Always", node_name=node_name)
